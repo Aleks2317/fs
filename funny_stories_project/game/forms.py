@@ -2,24 +2,16 @@ from django import forms
 from .models import User
 
 
-# class GameForm(forms.Form):
-#     game = forms.CharField(max_length=50)
+class GameForm(forms.Form):
+    text = forms.CharField(max_length=1000)
 
 
 class GameSettingsForm(forms.Form):
-    count_players = forms.IntegerField(label='Количество игроков',
-                                       min_value=2,
-                                       max_value=10,
-                                       initial=2,
-                                       widget=forms.NumberInput(attrs={
-                                           'class': 'form-control',
-                                       }))
-    word_count = forms.IntegerField(label='Минимальное количество слов',
-                                    min_value=2,
-                                    initial=2,
-                                    widget=forms.NumberInput(attrs={
-                                        'class': 'form-control',
-                                    }))
+    title = forms.CharField(label='Название истории',
+                            initial='Новая веселая история!',
+                            widget=forms.TextInput(attrs={
+                                'class': 'form-control',
+                            }))
     number_of_round = forms.IntegerField(label='Количество кругов',
                                          min_value=1,
                                          initial=1,
@@ -55,9 +47,5 @@ class NewUserForms(forms.Form):
                                  'class': 'form-control',
                                  'placeholder': 'user@mail.ru'
                              }))
-#
-#
-# class RunGameForm(forms.Form):
-#     title = forms.CharField(max_length=100)
-#     story = forms.CharField(max_length=1000)
+
 
