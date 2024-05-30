@@ -3,21 +3,21 @@ from .models import User
 
 
 class GameForm(forms.Form):
-    text = forms.CharField(max_length=1000)
+    text = forms.CharField(label='',
+                           initial='Я тут что-то напишу и пошучу)',
+                           widget=forms.Textarea(attrs={
+                               'type': 'text',
+                           }))
 
 
 class GameSettingsForm(forms.Form):
     title = forms.CharField(label='Название истории',
                             initial='Новая веселая история!',
-                            widget=forms.TextInput(attrs={
-                                'class': 'form-control',
-                            }))
+                            widget=forms.TextInput())
     number_of_round = forms.IntegerField(label='Количество кругов',
                                          min_value=1,
                                          initial=1,
-                                         widget=forms.NumberInput(attrs={
-                                             'class': 'form-control',
-                                         }))
+                                         widget=forms.NumberInput())
     players = forms.ChoiceField(label='Выберите игроков',
                                 error_messages={"required": "Пожалуйста выберите игроков!"
                                                             "Количество игроков должно быть не менее 2."
@@ -25,7 +25,8 @@ class GameSettingsForm(forms.Form):
                                                             "вы можете добавить его в базу воспользовавшись "
                                                             "'Добавить нового игрока.'"},
                                 choices=[(a.id, a.name) for a in User.objects.all()],
-                                initial='None')
+                                initial='None',
+                                required=True)
 
 
 class NewUserForms(forms.Form):
@@ -33,18 +34,14 @@ class NewUserForms(forms.Form):
                            initial='Player',
                            max_length=50,
                            widget=forms.TextInput(attrs={
-                               'class': 'form-control',
                                'placeholder': 'Введите имя пользователя',
                            }))
     age = forms.IntegerField(label='Возраст',
                              min_value=14,
-                             widget=forms.NumberInput(attrs={
-                                 'class': 'form-control'
-                             }))
+                             widget=forms.NumberInput())
     email = forms.EmailField(label='Почта',
                              initial='kuku@gmail.corporat',
                              widget=forms.EmailInput(attrs={
-                                 'class': 'form-control',
                                  'placeholder': 'user@mail.ru'
                              }))
 

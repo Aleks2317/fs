@@ -3,8 +3,16 @@
 {% block title %}Run game{% endblock %}
 
 {% block content %}
-<a href="{% url 'home' %}"><h3> В начало </h3></a>
-<a href="{% url 'game_settings' %}"><h3> К настройкам </h3></a>
+<div class="container border bg-dark text-white">
+    <div class="row">
+      <div class="col-4">
+          <a href="{% url 'home' %}"><h3>В начало</h3></a>
+      </div>
+      <div class="col-4">
+          <a href="{% url 'game_settings' %}"><h3>К настройкам игры</h3></a>
+      </div>
+    </div>
+</div>
 <div>
   <h3>{{ message }}</h3>
   <form action="" method="post">

@@ -3,21 +3,33 @@
 {% block title %}Run game{% endblock %}
 
 {% block content %}
-<a href="{% url 'home' %}"><h3> В начало </h3></a>
-<div>
-  <h3>{{ message }}</h3>
-  <form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_div }}
-    <input type="submit" value=" Добавить к игре ">
-  </form>
-    {% if players %}
-    <div>
-      <p>Выбранные игроки: {{ players }}</p>
+<div class="container border bg-dark text-white">
+  <div class="row">
+    <div class="col-4">
+      <a href="{% url 'home' %}"><h3> В начало </h3></a>
     </div>
-    {% endif %}
-
-  <a href="{% url 'new_user' %}"><h3> Добавить нового игрока </h3></a>
+    <div class="col-4">
+      <a href="{% url 'rules' %}"><h3> Правила игры! </h3></a>
+    </div>
+    <div class="col-4">
+      <a href="{% url 'new_user' %}"><h3> Новый игрок </h3></a>
+    </div>
+  </div>
 </div>
-
+<div class="container p-5 bg-dark text-white">
+  <div>
+    <h3>{{ message }}</h3>
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.as_div }}
+      <input type="submit" value=" Добавить к игре ">
+    </form>
+      {% if players %}
+      <div>
+        <p>Выбранные игроки: {{ players }}</p>
+      </div>
+      {% endif %}
+    <a href="{% url 'game' %}"><h3> Начать игру </h3></a>
+  </div>
+</div>
 {% endblock %}

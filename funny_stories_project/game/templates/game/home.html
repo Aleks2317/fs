@@ -3,12 +3,12 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div>
-  <h2>Стартовая страница</h2>
-    <p>Правила</p>
+<div class="container border bg-dark text-white">
+    <h2>Стартовая страница</h2>
+</div>
+<div class="container p-3 bg-dark text-white">
+    <a href="{% url 'rules' %}"><h3> Правила игры! </h3></a>
     <p>Просмотр всех игр</p>
-
    <a href="{% url 'game_settings' %}"><h3>Начать игру</h3></a>
-
 </div>
 {% endblock %}

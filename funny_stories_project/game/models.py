@@ -10,7 +10,7 @@ class Games(models.Model):
     data_game = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Model is Games {self.title = }'
+        return f'Model is Games {self.title_story = }'
 
 
 class User(models.Model):
