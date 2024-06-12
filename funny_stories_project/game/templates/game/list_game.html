@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container border bg-dark text-white">
+    <a href="{% url 'home' %}"><h3>Главная</h3></a>
+
+</div>
+<div class="container p-3 bg-dark text-white">
+    <table border="1" align="center">
+        <tr>
+            <th>Название игры</th>
+            <th>текст</th>
+            <th>дата создания</th>
+        </tr>
+        {% for k in dict_game %}
+            <tr>
+                <td width="200">{{ k.title_story }}</td>
+                <td width="600">{% for story in k.story %}
+                    <ul>{{ story }}</ul>
+                    {% endfor %}
+                </td>
+                <td width="200" >
+                    {% for data in k.data %}
+                        {{ data }}
+                    {% endfor %}
+                </td>
+            </tr>
+
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}
