@@ -6,18 +6,24 @@ from datetime import datetime
 class GameForm(forms.Form):
     """ Форма для добавления текста игры """
     text = forms.CharField(label='',
-                           initial='Я тут что-то напишу и пошучу)',
-                           widget=forms.Textarea(attrs={
-                               'type': 'text',
-                           }))
+                           help_text='Напишите не меньше 2 слов',
+                           widget=forms.Textarea(attrs={'type': 'text'}))
+
+    def clean_text(self):
+        """ Проверка на количество вводимых слов.
+        Если слов меньше 2, то добавляем два '?' """
+        text: str = self.cleaned_data['text']
+        if len(text.split()) < 2:
+            text += ' ? ?'
+        return text
 
 
 class GameSettingsForm(forms.Form):
     """ Форма для настроек игры """
-    time = forms.CharField(initial=datetime.now())
+    time = forms.CharField(initial=datetime.now()) # потом нужно удалить
 
     title = forms.CharField(label='Название истории',
-                            initial='Новая веселая история!',
+                            initial='Новая история!',
                             widget=forms.TextInput())
     number_of_round = forms.IntegerField(label='Количество кругов',
                                          min_value=1,
@@ -43,8 +49,6 @@ class NewUserForms(forms.Form):
                                'placeholder': 'Введите имя пользователя',
                            }))
     age = forms.IntegerField(label='Возраст',
-                             min_value=14,
-                             initial=14,
                              widget=forms.NumberInput())
     email = forms.EmailField(label='Почта',
                              initial='kuku@gmail.corporat',
@@ -52,7 +56,7 @@ class NewUserForms(forms.Form):
                                  'placeholder': 'user@mail.ru'
                              }))
 
-    def clean_email(self):
+    def clean_name(self):
         """ Проверка на наличие имени в базе данных """
         name: str = self.cleaned_data['name']
         if name in Users.objects.all().values_list('name', flat=True):
