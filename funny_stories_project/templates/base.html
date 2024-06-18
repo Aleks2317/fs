@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <title>{% block title %}funny stories{% endblock %}</title>
+
+</head>
+
+<body class="text-center">
+    <div class="bg-image"
+         style="background-image: url('/static/images/bg3.jpg');  background-size: cover; height: 100vh; ">
+            {% block content %}
+                <p>Скоро тут появится текст...</p>
+            {% endblock %}
+
+        <div class="fixed-bottom">
+            <footer class="footer bg-dark text-white">
+                <p>Project Funny Stories 2024</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

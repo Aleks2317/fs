@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container border bg-dark text-white">
+    <a href="{% url 'home' %}"><h3>Главная</h3></a>
+
+</div>
+<div class="container p-3 bg-dark text-white">
+<<<<<<< HEAD
+    <table border="1">
+=======
+    <table border="1" align="center">
+>>>>>>> exp
+        <tr>
+            <th>Название игры</th>
+            <th>текст</th>
+            <th>дата создания</th>
+        </tr>
+<<<<<<< HEAD
+        {% for k in list_game %}
+            <tr>
+                <td width="200">{{ k.title_story }}</td>
+                <td>{{ k.story }}</td>
+=======
+        {% for k in dict_game %}
+            <tr>
+                <td width="200">{{ k.title_story }}</td>
+                <td width="600">{% for story in k.story %}
+                    <ul>{{ story }}</ul>
+                    {% endfor %}
+                </td>
+>>>>>>> exp
+                <td width="200" >
+                    {% for data in k.data %}
+                        {{ data }}
+                    {% endfor %}
+                </td>
+            </tr>
+
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

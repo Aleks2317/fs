@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Run game{% endblock %}
+
+{% block content %}
+<div class="container border bg-dark text-white">
+    <div class="row">
+      <div class="col-4">
+          <a href="{% url 'home' %}"><h3>Главная</h3></a>
+      </div>
+      <div class="col-4">
+          <a href="{% url 'game_settings' %}"><h3>К настройкам игры</h3></a>
+      </div>
+    </div>
+</div>
+<div>
+<<<<<<< HEAD
+    <h3>{{ title_story }}</h3>
+    <h3>{{ message }}</h3>
+=======
+    <div class="container border bg-white text-black">
+    <h3>{{ title_story }}</h3>
+
+    <h3>{{ message }}</h3>
+    <h3>Подсказка: {{ clue }}</h3>
+    </div>
+>>>>>>> exp
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <input type="submit" value=" Добавить ">
+    </form>
+        <input type="submit" value=" Завершить ">
+</div>
+
+{% endblock %}
