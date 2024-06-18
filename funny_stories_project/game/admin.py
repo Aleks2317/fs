@@ -1,14 +1,5 @@
 from django.contrib import admin
-<<<<<<< HEAD
-from .models import Games, User
 
-
-
-
-
-admin.site.register(Games)
-admin.site.register(User)
-=======
 from .models import Games, Users
 
 
@@ -24,5 +15,5 @@ class UsersAdmin(admin.ModelAdmin):
 
 admin.site.register(Games)
 admin.site.register(Users, UsersAdmin)
->>>>>>> exp
+
 

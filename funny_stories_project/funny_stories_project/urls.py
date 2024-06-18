@@ -19,13 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-<<<<<<< HEAD
-    path('', include('myapp.urls')),
-=======
     path('', include('game.urls')),
     # path('__debug__/', include("debug_toolbar.urls")),
-<<<<<<< HEAD
->>>>>>> Add_Json
-=======
->>>>>>> exp
 ]

@@ -37,12 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'home'
-=======
     'game',
     'django_bootstrap5',
->>>>>>> Add_Json
 ]
 
 MIDDLEWARE = [
@@ -138,11 +134,7 @@ LOGGING = {
             'format': '%(levelname)s %(message)s'
         },
         'verbose': {
-<<<<<<< HEAD
-            'format': '{asctime} {levelname} {module} {process} {thread} \n message: {message}',
-=======
             'format': '{levelname} {asctime} {module} {process} {thread} {message}',
->>>>>>> Add_Json
             'style': '{',
         },
     },
@@ -162,18 +154,12 @@ LOGGING = {
             'handlers': ['console', 'file'],
             'level': 'INFO',
         },
-<<<<<<< HEAD
-        'home': {
-=======
+
         'game': {
->>>>>>> Add_Json
             'handlers': ['console', 'file'],
             'level': 'DEBUG',
             'propagate': True,
         },
-<<<<<<< HEAD
-
-=======
     },
 }
 
@@ -247,6 +233,5 @@ BOOTSTRAP5 = {
     },
     'field_renderers': {
         'default': 'django_bootstrap5.renderers.FieldRenderer',
->>>>>>> Add_Json
     },
 }

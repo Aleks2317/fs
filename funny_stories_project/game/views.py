@@ -45,6 +45,7 @@ def game_settings(request):
         form = GameSettingsForm(request.POST)
         if form.is_valid():
             logger.info('Game_settings ok valid')
+            title_story = form.cleaned_data['title']
             number_of_round = form.cleaned_data['number_of_round']
             player = playres.get(id=form.cleaned_data['players']).name
             logger.info(f'{player = }')
@@ -60,7 +61,7 @@ def game_settings(request):
                          number_of_round=number_of_round,
                          )
             game.save()
-            logger.info(f'Save - Game: {game.list_players = }')
+
             return render(request, 'game/game_settings.html', {'form': form, 'players': players, 'message': message})
     else:
         form = GameSettingsForm()
@@ -78,9 +79,7 @@ def game(request):
 
     if request.method == 'POST':
         form = GameForm(request.POST)
-        player_walks += 1
         if form.is_valid():
-
             story = form.cleaned_data['text']
             player_walks += 1
 

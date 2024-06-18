@@ -2,8 +2,6 @@ from django import forms
 from .models import Users
 from datetime import datetime
 
-playres = User.objects.all()
-
 
 class GameForm(forms.Form):
     """ Форма для добавления текста игры """
@@ -21,12 +19,8 @@ class GameForm(forms.Form):
 
 
 class GameSettingsForm(forms.Form):
-<<<<<<< HEAD
-=======
     """ Форма для настроек игры """
     time = forms.CharField(initial=datetime.now()) # потом нужно удалить
->>>>>>> exp
-
     title = forms.CharField(label='Название истории',
                             initial='Новая история!',
                             widget=forms.TextInput())
@@ -40,11 +34,8 @@ class GameSettingsForm(forms.Form):
                                                             "Если вашего игрока нет в предложенном списке, "
                                                             "вы можете добавить его в базу воспользовавшись "
                                                             "'Добавить нового игрока.'"},
-<<<<<<< HEAD
-                                # choices=[(a.id, a.name) for a in playres],
-=======
+
                                 choices=[(a.id, a.name) for a in Users.objects.all()],
->>>>>>> exp
                                 initial='None',
                                 required=True)
 
@@ -71,6 +62,5 @@ class NewUserForms(forms.Form):
         if name in Users.objects.all().values_list('name', flat=True):
             raise forms.ValidationError('Такой игрока уже существует, пожалуйста введите другое имя')
         return name
-
 
 
