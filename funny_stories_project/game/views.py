@@ -26,8 +26,8 @@ def new_user(request):
         if form.is_valid():
             logger.info(f'{form.cleaned_data["name"] = }\n{Users.objects.all().values_list("name") = }')
             user = Users(name=form.cleaned_data['name'],
-                        age=form.cleaned_data['age'],
-                        email=form.cleaned_data['email'])
+                         age=form.cleaned_data['age'],
+                         email=form.cleaned_data['email'])
             user.save()
             message = 'Игрок сохранен, добавить еще одного игрока?'
             return render(request, 'game/newuser.html', {'form': form, 'message': message})

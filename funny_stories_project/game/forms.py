@@ -3,6 +3,15 @@ from .models import Users
 from datetime import datetime
 
 
+def list_users():
+    try:
+        users = [(a.id, a.name) for a in Users.objects.all()]
+        return users
+    except:
+        users = []
+        return users
+
+
 class GameForm(forms.Form):
     """ Форма для добавления текста игры """
     text = forms.CharField(label='',
@@ -35,7 +44,7 @@ class GameSettingsForm(forms.Form):
                                                             "вы можете добавить его в базу воспользовавшись "
                                                             "'Добавить нового игрока.'"},
 
-                                choices=[(a.id, a.name) for a in Users.objects.all()],
+                                choices=list_users(),
                                 initial='None',
                                 required=True)
 
