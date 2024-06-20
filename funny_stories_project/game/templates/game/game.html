@@ -4,14 +4,17 @@
 
 {% block content %}
 <div class="container border bg-dark text-white">
-    <div class="row">
-      <div class="col-4">
-          <a href="{% url 'home' %}"><h3>Главная</h3></a>
-      </div>
-      <div class="col-4">
-          <a href="{% url 'game_settings' %}"><h3>К настройкам игры</h3></a>
-      </div>
+  <div class="row">
+    <div class="col-4">
+      <a href="{% url 'home' %}"><h3> Главная </h3></a>
     </div>
+    <div class="col-4">
+      <a href="{% url 'rules' %}"><h3> Правила игры! </h3></a>
+    </div>
+    <div class="col-4">
+      <a href="{% url 'game_settings' %}"><h3>К настройкам игры</h3></a>
+    </div>
+  </div>
 </div>
 <div>
     <div class="container border bg-white text-black">
@@ -25,7 +28,7 @@
         {{ form.as_div }}
         <input type="submit" value=" Добавить ">
     </form>
-        <input type="submit" value=" Завершить ">
+
 </div>
 
 {% endblock %}

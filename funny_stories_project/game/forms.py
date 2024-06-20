@@ -29,7 +29,6 @@ class GameForm(forms.Form):
 
 class GameSettingsForm(forms.Form):
     """ Форма для настроек игры """
-    time = forms.CharField(initial=datetime.now()) # потом нужно удалить
     title = forms.CharField(label='Название истории',
                             initial='Новая история!',
                             widget=forms.TextInput())
